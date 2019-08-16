@@ -31,6 +31,12 @@ const drawMatrix = (matrix, offset) => {
   });
 };
 
+
+const playerDrop = () => {
+  player.pos.y++;
+  dropCounter = 0;
+}
+
 let dropCounter = 0;
 let dropInterval = 1000;
 
@@ -41,8 +47,7 @@ const update = (time = 0) => {
 
   dropCounter += deltaTime;
   if(dropCounter > dropInterval){
-    player.pos.y++;
-    dropCounter = 0;
+    playerDrop();
   }
 
   draw()
@@ -58,7 +63,11 @@ document.addEventListener('keydown', (event) => {
   if(event.key === 'ArrowLeft'){
     player.pos.x--;
   } else if(event.key === 'ArrowRight'){
-    player.pos.x++;
+      player.pos.x++;
+  } else if (event.key === 'ArrowDown') {
+      playerDrop();
+  } else if (event.key === 'ArrowUp') {
+      player.matrix.rotate(-90)
   }
 })
 
