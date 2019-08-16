@@ -1,0 +1,10 @@
+body {
+  background: url('http://data.freehdw.com/tetris-pattern-hd-widescreen.jpg');
+  background-size: cover;
+}
+
+#tetris {
+  width: 240px;
+  height: 400px;
+  background-color: black;
+}
