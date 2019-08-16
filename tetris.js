@@ -37,7 +37,8 @@ const draw = () => {
   context.fillStyle = '#000';
   context.fillRect(0, 0, canvas.width, canvas.height);
 
-  drawMatrix(player.matrix, player.pos)
+  drawMatrix(arena, {x: 0, y: 0});
+  drawMatrix(player.matrix, player.pos);
 }
 
 const drawMatrix = (matrix, offset) => {
