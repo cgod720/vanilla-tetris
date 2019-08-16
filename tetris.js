@@ -3,7 +3,18 @@ const context = canvas.getContext('2d');
 
 context.scale(20, 20)
 
-
+const arenaSweep = () => {
+  outer: for(i = arena.length - 1; i > 0; i--){
+    for(j = 0; j < arena[i].length; j++){
+      if(arena[i][j] === 0){
+        continue outer;
+      }
+    }
+    const row = arena.splice(i, 1)[0].fill(0)
+    arena.unshift(row);
+    i++;
+  }
+}
 
 const colors = [
   null,
@@ -123,6 +134,7 @@ const playerDrop = () => {
     player.pos.y--;
     merge(arena, player);
     playerReset();
+    arenaSweep();
   }
   dropCounter = 0;
 }
@@ -162,8 +174,8 @@ const playerRotate = (dir) => {
 }
 
 const rotate = (matrix, dir) => {
-  for(y = 0; y < matrix.length; ++y){
-    for(x = 0; x < y; ++x){
+  for(y = 0; y < matrix.length; y++){
+    for(x = 0; x < y; x++){
       [
         matrix[x][y],
         matrix[y][x]
