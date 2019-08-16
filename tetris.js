@@ -7,13 +7,13 @@ context.scale(20, 20)
 
 const colors = [
   null,
-  'red',
-  'blue',
-  'violet',
-  'lightgreen',
-  'yellow',
-  'orange',
-  'pink'
+  '#FF0D72',
+  '#0DC2FF',
+  '#0DFF72',
+  '#F538FF',
+  '#FF8E0D',
+  '#FFE138',
+  '#3877FF'
 
 ]
 
