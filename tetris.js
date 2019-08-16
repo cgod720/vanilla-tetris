@@ -54,6 +54,14 @@ const player = {
   matrix: matrix,
 }
 
+document.addEventListener('keydown', (event) => {
+  if(event.key === 'ArrowLeft'){
+    player.pos.x--;
+  } else if(event.key === 'ArrowRight'){
+    player.pos.x++;
+  }
+})
+
 
 // drawMatrix(matrix, {x: 5, y: 5});
 update();
