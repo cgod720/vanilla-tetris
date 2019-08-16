@@ -116,7 +116,7 @@ const playerDrop = () => {
   if(collide(arena, player)){
     player.pos.y--;
     merge(arena, player);
-    player.pos.y = 0;
+    playerReset();
   }
   dropCounter = 0;
 }
@@ -125,6 +125,18 @@ const playerMove = (dir) => {
   player.pos.x += dir;
   if(collide(arena, player)){
     player.pos.x -= dir;
+  }
+}
+
+const letters = ['T', 'O', 'L', 'J', 'I', 'S', 'Z']
+
+const playerReset = () => {
+  player.matrix = createPiece(letters[Math.floor(Math.random() * letters.length)])
+  player.pos.y = 0;
+  player.pos.x = Math.floor(arena[0].length / 2) -
+                 Math.floor(player.matrix[0].length / 2);
+  if(collide(arena, player)){
+    arena.forEach(row => row.fill(0))
   }
 }
 
@@ -182,7 +194,7 @@ const update = (time = 0) => {
 const arena = createMatrix(12, 20);
 console.log(arena);
 
-const letters = ['T', 'O', 'L', 'J', 'S', 'Z']
+
 const player = {
   pos: {x: 5, y: 5},
   matrix: createPiece(letters[Math.floor(Math.random() * letters.length)])
