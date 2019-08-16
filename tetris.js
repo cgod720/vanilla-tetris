@@ -33,6 +33,52 @@ const createMatrix = (w, h) => {
   return matrix;
 }
 
+const createPiece = (type) => {
+  if(type === 'T'){
+    return [
+      [0, 0, 0],
+      [1, 1, 1],
+      [0, 1, 0],
+    ];
+  } else if(type === 'O'){
+    return [
+      [1, 1],
+      [1, 1]
+    ];
+  } else if(type === 'L'){
+    return [
+      [0, 1, 0],
+      [0, 1, 0],
+      [0, 1, 1],
+    ];
+  } else if (type === 'J') {
+    return [
+      [0, 1, 0],
+      [0, 1, 0],
+      [1, 1, 0],
+    ];
+  } else if(type === 'I'){
+    return [
+      [0, 1, 0, 0],
+      [0, 1, 0, 0],
+      [0, 1, 0, 0],
+      [0, 1, 0, 0]
+    ];
+  } else if(type === 'S'){
+    return [
+      [0, 0, 0],
+      [0, 1, 1],
+      [1, 1, 0],
+    ];
+  } else if(type === 'Z'){
+    return [
+      [0, 0, 0],
+      [1, 1, 0],
+      [0, 1, 1],
+    ];
+  }
+}
+
 const draw = () => {
   context.fillStyle = '#000';
   context.fillRect(0, 0, canvas.width, canvas.height);
@@ -136,9 +182,10 @@ const update = (time = 0) => {
 const arena = createMatrix(12, 20);
 console.log(arena);
 
+const letters = ['T', 'O', 'L', 'J', 'S', 'Z']
 const player = {
   pos: {x: 5, y: 5},
-  matrix: matrix,
+  matrix: createPiece(letters[Math.floor(Math.random() * letters.length)])
 }
 
 document.addEventListener('keydown', (event) => {
