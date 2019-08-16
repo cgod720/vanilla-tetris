@@ -83,7 +83,18 @@ const playerMove = (dir) => {
 }
 
 const playerRotate = (dir) => {
+  const pos = player.pos.x;
+  let offset = 1;
   rotate(player.matrix, dir);
+  while(collide(arena, player)){
+    player.pos.x += offset;
+    offset = -(offset + (offset > 0 ? 1 : -1))
+    if(offset > player.matrix[0].length){
+      rotate(player.matrix - dir);
+      player.pos.x = pos;
+      return;
+    }
+  }
 }
 
 const rotate = (matrix, dir) => {
@@ -141,6 +152,8 @@ document.addEventListener('keydown', (event) => {
       playerRotate(1)
   } else if(event.key === "Q" || event.key === "q"){
     playerRotate(-1);
+  } else if(event.key === "W" || event.key === "w"){
+    playerRotate(1);
   }
 });
 
@@ -153,6 +166,9 @@ document.getElementById('moveRight').addEventListener('click', (event) => {
 document.getElementById('moveDown').addEventListener('click', (event) => {
   playerDrop();
 });
+document.getElementById('rotate').addEventListener('click', (event) => {
+  playerRotate(1)
+})
 
 // drawMatrix(matrix, {x: 5, y: 5});
 update();

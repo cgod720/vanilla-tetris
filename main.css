@@ -8,3 +8,11 @@ body {
   /* height: 400px; */
   /* background-color: black; */
 /* } */
+
+#rotate {
+  width: 3.5vw;
+  height: 4.4vh;
+}
+img {
+  width: 90%;
+}
