@@ -4,6 +4,7 @@ const context = canvas.getContext('2d');
 context.scale(20, 20)
 
 const arenaSweep = () => {
+  let rowCount = 1;
   outer: for(i = arena.length - 1; i > 0; i--){
     for(j = 0; j < arena[i].length; j++){
       if(arena[i][j] === 0){
@@ -13,6 +14,9 @@ const arenaSweep = () => {
     const row = arena.splice(i, 1)[0].fill(0)
     arena.unshift(row);
     i++;
+
+    player.score += rowCount * 10;
+    rowCount *= 2;
   }
 }
 
@@ -135,8 +139,10 @@ const playerDrop = () => {
     merge(arena, player);
     playerReset();
     arenaSweep();
+    updateScore();
   }
   dropCounter = 0;
+
 }
 
 const playerMove = (dir) => {
@@ -155,6 +161,8 @@ const playerReset = () => {
                  Math.floor(player.matrix[0].length / 2);
   if(collide(arena, player)){
     arena.forEach(row => row.fill(0))
+    player.score = 0;
+    updateScore();
   }
 }
 
@@ -196,6 +204,7 @@ let dropCounter = 0;
 let dropInterval = 1000;
 
 let lastTime = 0;
+
 const update = (time = 0) => {
   const deltaTime = time - lastTime;
   lastTime = time;
@@ -204,9 +213,12 @@ const update = (time = 0) => {
   if(dropCounter > dropInterval){
     playerDrop();
   }
-
   draw()
   requestAnimationFrame(update)
+}
+
+const updateScore = () => {
+  document.getElementById('score').innerText = player.score;
 }
 
 const arena = createMatrix(12, 20);
@@ -214,8 +226,9 @@ console.log(arena);
 
 
 const player = {
-  pos: {x: 5, y: 5},
-  matrix: createPiece(letters[Math.floor(Math.random() * letters.length)])
+  pos: {x: 0, y: 0},
+  matrix: null,
+  score: 0
 }
 
 document.addEventListener('keydown', (event) => {
@@ -248,4 +261,5 @@ document.getElementById('rotate').addEventListener('click', (event) => {
 })
 
 // drawMatrix(matrix, {x: 5, y: 5});
+playerReset();
 update();
