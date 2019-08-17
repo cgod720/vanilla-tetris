@@ -3,15 +3,20 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="./main.css">
+    <script src="https://kit.fontawesome.com/cfac6ce3de.js"></script>
     <title>Tetris</title>
   </head>
   <body>
-    <div id='score'>0</div>
-    <canvas id="tetris" width="240" height="400"></canvas>
-    <button id="moveLeft"><</button>
-    <button id="moveRight">></button><br/>
-    <button id="moveDown">V</button><br/>
-    <button id="rotate"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZrKFkLbcAxVWvbiZ6SYBm2sKmhTuoj_shxRmXZuahNnAc8z68"></button>
+    <div class="container">
+      <p id='score'></p>
+      <canvas id="tetris" width="240" height="400"></canvas><br/>
+      <div class="buttons">
+        <button id="rotate"><i class="fas fa-sync"></i></button><br/>
+        <button id="moveLeft" class="dirs"><i class="fas fa-arrow-left"></i></button>
+        <button id="moveRight" class="dirs"><i class="fas fa-arrow-right"></i></button><br/>
+        <button id="moveDown"><i class="fas fa-arrow-down"></i></button><br/>
+      </div>
+    </div>
 
     <script src="tetris.js"></script>
   </body>

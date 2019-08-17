@@ -262,4 +262,5 @@ document.getElementById('rotate').addEventListener('click', (event) => {
 
 // drawMatrix(matrix, {x: 5, y: 5});
 playerReset();
+updateScore();
 update();
