@@ -1,6 +1,8 @@
 body {
   background: url('http://data.freehdw.com/tetris-pattern-hd-widescreen.jpg');
   background-size: cover;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .container {
@@ -10,6 +12,7 @@ body {
 
 #tetris {
   border: 3px solid white;
+  background: url('https://media.phillyvoice.com/media/images/Screen_Shot_2015-05-03_at_3.08.23_.2e16d0ba.fill-735x490.png')
 }
 .buttons {
   margin: 0 auto;
@@ -28,6 +31,7 @@ body {
   border: 3px solid white;
   margin: 0 auto;
   margin-bottom: 3vh;
+  padding-top: 1vh;
 }
 #rotate {
   /* width: 3.5vw;

@@ -256,11 +256,18 @@ document.getElementById('moveRight').addEventListener('click', (event) => {
 document.getElementById('moveDown').addEventListener('click', (event) => {
   playerDrop();
 });
-document.getElementById('rotate').addEventListener('click', (event) => {
+document.getElementById('rotate').addEventListener('click', () => {
   playerRotate(1)
 })
 
-// drawMatrix(matrix, {x: 5, y: 5});
-playerReset();
-updateScore();
-update();
+document.getElementById('start').addEventListener('click', () => {
+  startGame();
+})
+
+
+
+const startGame = () => {
+  playerReset();
+  updateScore();
+  update();
+}
