@@ -262,6 +262,7 @@ document.getElementById('rotate').addEventListener('click', () => {
 
 document.getElementById('start').addEventListener('click', () => {
   startGame();
+  document.getElementById('start').innerText = 'restart';
 })
 
 
