@@ -4,6 +4,10 @@
   }
 }
 
+* {
+    touch-action: manipulation;
+}
+
 body {
   background: url('http://data.freehdw.com/tetris-pattern-hd-widescreen.jpg');
   background-size: cover;
