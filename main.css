@@ -17,7 +17,7 @@ body {
 
 canvas {
   margin: 0 auto;
-  height: 68vh;
+  height: 65vh;
 }
 
 .container {
@@ -30,9 +30,10 @@ canvas {
   background: url('https://media.phillyvoice.com/media/images/Screen_Shot_2015-05-03_at_3.08.23_.2e16d0ba.fill-735x490.png')
 }
 .buttons {
+  text-align: center;
   margin: 0 auto;
-  width: 4vw;
-  height: 3vh;
+  width: 40px;
+  height: 30px;
   background-color: lightgrey;
 }
 
@@ -51,8 +52,9 @@ canvas {
 }
 
 #score {
+  text-align: center;
   font-size: 100%;
-  width: 10vw;
+  width: 40vw;
   /* height: 5vh; */
   background-color: black;
   color: white;
@@ -62,6 +64,12 @@ canvas {
   padding-top: 1vh;
 }
 #rotate {
-  /* width: 3.5vw;
-  height: 4.4vh; */
+  margin-bottom: 1vh;
+}
+
+#start {
+  overflow-x: hidden;
+  text-align: center;
+  width: 50px;
+  margin-bottom: 3vh;
 }
