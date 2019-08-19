@@ -2,9 +2,9 @@ const canvas = document.getElementById('tetris');
 const context = canvas.getContext('2d');
 
 context.scale(20, 20)
+let rowCount = 1;
 
 const arenaSweep = () => {
-  let rowCount = 1;
   outer: for(i = arena.length - 1; i > 0; i--){
     for(j = 0; j < arena[i].length; j++){
       if(arena[i][j] === 0){
@@ -265,10 +265,20 @@ document.getElementById('start').addEventListener('click', () => {
   document.getElementById('start').innerText = 'restart';
 })
 
-
-
 const startGame = () => {
+  player.score = 0;
+  rowCounter = 0;
   playerReset();
-  updateScore();
+  updateScore()
   update();
+  arena.forEach(row => row.fill(0))
+
 }
+
+
+
+// const startGame = () => {
+//   playerReset();
+//   updateScore();
+//   update();
+// }
