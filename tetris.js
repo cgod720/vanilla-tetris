@@ -272,13 +272,4 @@ const startGame = () => {
   updateScore()
   update();
   arena.forEach(row => row.fill(0))
-
 }
-
-
-
-// const startGame = () => {
-//   playerReset();
-//   updateScore();
-//   update();
-// }
